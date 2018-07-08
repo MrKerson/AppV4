@@ -40,6 +40,7 @@ namespace AppV4
             MassClass massClass = new MassClass();
 
             Console.WriteLine($"Количество слов в тексте: {massClass.LengthAllMass(num, s)}");
+            Console.WriteLine($"Количество уникальные слова, длина которых больше {num}: {massClass.LengthMass(num, s)}");
             Console.WriteLine($"Уникальные слова, длина которых больше {num}:");
             massClass.StringMass(num, s);
             Console.ReadLine();
@@ -58,6 +59,20 @@ namespace AppV4
             {
                 Console.WriteLine(Mass);
             }
+        }
+
+        public int LengthMass(int num, string s)
+        {
+            int _mass = 0;
+            textMass = s.Split(' ', ',', '.', ';', ':');
+            foreach (string Mass in textMass)
+            {
+                if (Mass.Length > num)
+                {
+                    _mass = Mass.Length;
+                }
+            }
+            return _mass;
         }
 
         public int LengthAllMass(int num, string s)
